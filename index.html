@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>hello</title>
+    <style>
+        *{
+            background-color: #000000;
+        }
+        h1, h2, h3, h4, h5, h6, a, button, label, input{
+            color: #ffffff;
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+<!--<h1>hi</h1>
+<h3>this is cool html file used for nodejs script!</h3>
+<a href="http://localhost:6551/api/v1/hellopostmanuser">press here if you use postman</a>!-->
+<h1>HttpMarketplace</h1>
+<div class="wrapper"></div>
+<form action="/add" method="post">
+    <h2>Add Product</h2>
+    <label>Title</label>
+    <input type="text" name="title">
+    <br><br>
+    <label>Description</label>
+    <input type="text" name="description">
+    <br><br>
+    <label>Price</label>
+    <input type="number" name="price">
+    <br><br>
+    <button type="submit">Add</button>
+</form>
+</body>
+</html>
