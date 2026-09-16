@@ -12,6 +12,7 @@
             font-family: Arial;
         }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
 <!--<h1>hi</h1>
@@ -22,15 +23,36 @@
 <form action="/add" method="post">
     <h2>Add Product</h2>
     <label>Title</label>
-    <input type="text" name="title">
+    <input class="title" type="text" name="title">
     <br><br>
     <label>Description</label>
-    <input type="text" name="description">
+    <input class="desc" type="text" name="description">
     <br><br>
     <label>Price</label>
-    <input type="number" name="price">
+    <input class="price" type="number" name="price">
     <br><br>
-    <button type="submit">Add</button>
+    <button class="addproduct" type="submit">Add</button>
 </form>
+<div class="needed"></div>
+<script>
+    const title = document.querySelector('.title')
+    const desc = document.querySelector('.desc')
+    const price = document.querySelector('.price')
+    const needed = document.querySelector('.needed')
+
+    $(document).ready(function(){
+        $(".addproduct").click(function(){
+            if(title.value == "") {
+                needed.innerHTML = `<h1>ти дурак? </h1>`
+                setTimeout(() => {
+                    needed.innerHTML = `<h1>ти навіть не написав назву😂</h1>`
+                }, 2000)
+            }
+            else{
+
+            }
+        })
+    })
+</script>
 </body>
 </html>

@@ -5,6 +5,10 @@ const qstring = require("querystring")
 const port = 6551
 const htmlfile = fs.readFileSync(path.join(__dirname, "index.html"))
 const db = fs.readFileSync(path.join(__dirname, "db.json"))
+const url = "https://my-json-server.typicode.com/vanvani41/first-web-fullstack/db"
+const prod_title = htmlfile.document.querySelector(".title")
+const prod_desc = htmlfile.document.querySelector(".desc")
+const prod_price = htmlfile.document.querySelector(".price")
 
 function addProduct(req, res) {
     let data = "";
@@ -61,7 +65,19 @@ http.createServer((req, res) => {
             break;
         case "/add":
             if (req.method == "POST") {
-                addProduct(req, res);
+                if (prod_title == null){
+                    res.writeHead(400, { "Content-Type": "text/html" });
+                    res.end("ти навіть не написав тайтл");
+                }
+                else if (prod_desc == null) {
+                    addProduct(req, res); // зробити щоб деск мінявся на "No description."
+                }
+                else if (prod_price == null){
+                    addProduct(req, res); // зробити щоб прайс мінявся на "Free"
+                }
+                else if (prod_desc == null && prod_price == null){
+                    addProduct(req, res) // розберетесь
+                }
             } else {
                 methodNotAllowed(res);
             }
